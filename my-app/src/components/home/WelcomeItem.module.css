@@ -1,0 +1,31 @@
+.imagem{
+    max-width:70%;
+    height:auto;
+}
+
+.titulo{
+    display: block;
+    font-family: Roboto;
+    text-align: left;
+    font-size: 3.5em;
+    margin: 0px;
+    color: #5277D6;
+    font-weight: bold;
+    text-shadow: 3px 3px rgba(82, 119, 214, 0.8);
+}
+
+.subtitulo{
+    display: inline-block;
+    text-align: left;
+    font-size: 1.5em;
+    font-family: Roboto;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.container{
+    max-width: 40%;
+    height: auto;
+    display: inline-flex;
+    flex-direction: column;
+}
