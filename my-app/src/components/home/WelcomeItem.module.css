@@ -1,5 +1,5 @@
 .imagem{
-    max-width:70%;
+    max-width:80%;
     height:auto;
 }
 
@@ -7,7 +7,7 @@
     display: block;
     font-family: Roboto;
     text-align: left;
-    font-size: 3.5em;
+    font-size: 4.5em;
     margin: 0px;
     color: #5277D6;
     font-weight: bold;
