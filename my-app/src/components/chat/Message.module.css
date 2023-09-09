@@ -1,0 +1,43 @@
+.mensagem{
+    max-width: 70%;
+    margin-top: 3%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 0;
+}
+
+.mensagem > div > div{
+    border-radius: 10000px;
+    width: 12%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    align-self: "flex-start";
+    color: white;
+    font-family: "Roboto";
+    font-weight: bolder;
+    font-size: 1.5em;
+    aspect-ratio: 1/1; 
+}
+
+.mensagem > div > span {
+    margin-left: 5%;
+    font-family: "Roboto";
+    font-size: 1em;
+}
+
+.mensagem > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.mensagem > p {
+    display: inline-block;
+    background-color: #F4F4F4;
+    font-family: "Roboto";
+    min-width: 50%;
+    max-width: 100%;
+    padding: 4%;
+    border-radius: 5px;
+}

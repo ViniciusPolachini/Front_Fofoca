@@ -1,0 +1,47 @@
+.forumlario{
+  width: 80%;
+  height: 8%;
+}
+
+.textInput{
+      /* Zere as bordas, preenchimentos e margens */
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  /* Remova qualquer estilo de fundo padrão */
+  background: none;
+
+  /* Defina a fonte e a cor do texto como desejado */
+  font-family: inherit; /* Herda a fonte do elemento pai */
+  font-size: 16px; /* Ou qualquer tamanho desejado */
+  color: inherit; /* Herda a cor do texto do elemento pai */
+
+  /* Remova quaisquer estilos de foco e sombras padrão */
+  outline: none;
+  box-shadow: none;
+}
+
+.textInput{
+    width: 80%;
+    height: 100%;
+    border-radius: 5px;
+    border: 2px solid #E5E5E5;
+    background-color: #FAFAFA;
+    font-size: 1.6em;
+}
+
+
+.submitInput{
+    margin-left: 1%;
+    width: 15%;
+    height: 100%;
+    border: none;
+    background-color: #5277D6;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 5px;
+    transition: 0.2s;
+}
