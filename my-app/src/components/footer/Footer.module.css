@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 3rem 0 0.5rem 0;
+}
+
+.container span {
+  color: rgba(0, 0, 0, .6);
+  font-size: 1rem;
+  margin: 0;
+}

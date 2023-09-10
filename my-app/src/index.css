@@ -1,3 +1,40 @@
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box; 
+}
+
+
+@media (max-width: 920px) {
+  html{
+      font-size: 62.5%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*altera caracteristicas do scrollbar*/
+body::-webkit-scrollbar { 
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2)
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #0B0B0B;
+}
+
+body, input, textarea, button {
+  font: 500 1.6rem poppins, sans-serif;
+  color: #0B0B0B;
+}
+
+button {
+  cursor: pointer;
+}
+
 html {
   height: 100%;
   width: 100%;

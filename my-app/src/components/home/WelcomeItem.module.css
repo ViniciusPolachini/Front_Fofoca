@@ -1,13 +1,13 @@
 .imagem{
-    max-width:80%;
-    height:auto;
+    max-width: 50%;
+    height: auto;
 }
 
 .titulo{
     display: block;
     font-family: Roboto;
     text-align: left;
-    font-size: 4.5em;
+    font-size: 4rem;
     margin: 0px;
     color: #5277D6;
     font-weight: bold;
@@ -17,15 +17,33 @@
 .subtitulo{
     display: inline-block;
     text-align: left;
-    font-size: 1.5em;
-    font-family: Roboto;
+    font-size: 1.2rem;
+    font-family: "Roboto";
     margin: 0px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .container{
-    max-width: 40%;
-    height: auto;
-    display: inline-flex;
+    flex: 1;
+    display: flex;
     flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+@media (max-width: 360px){
+    .container {
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .titulo {
+        text-align: center;
+    }
+    .subtitulo {
+        text-align: center;
+    }
 }

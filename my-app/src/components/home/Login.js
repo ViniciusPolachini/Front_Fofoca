@@ -12,7 +12,7 @@ export default function Login() {
                 <label htmlFor="Code" >Key chat:</label>
                 <input id="Code" type="text"/>
             </div>
-            <input className={styles.botao} type="submit" value="Fofocar"/>
+            <input className={styles.button} type="submit" value="Fofocar"/>
         </form>
       </div>
     );

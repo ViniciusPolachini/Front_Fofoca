@@ -1,29 +1,32 @@
 .mensagem{
-    max-width: 70%;
-    margin-top: 3%;
+    max-width: 80%;
+    margin-top: 3rem;
     flex-shrink: 0;
     flex-grow: 0;
     flex-basis: 0;
 }
 
-.mensagem > div > div{
+.mensagem > div > div {
+    width: 42px;
+    font-size: 1rem;
     border-radius: 10000px;
-    width: 12%;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    align-self: "flex-start";
     color: white;
-    font-family: "Roboto";
-    font-weight: bolder;
-    font-size: 1.5em;
     aspect-ratio: 1/1; 
 }
 
+@media (max-width: 360px){
+    .mensagem > div > div {
+        width: 28px;
+    }
+}
+
 .mensagem > div > span {
-    margin-left: 5%;
+    margin-left: .8rem;
     font-family: "Roboto";
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .mensagem > div{
@@ -33,11 +36,13 @@
 }
 
 .mensagem > p {
+    margin-top: 12px;
     display: inline-block;
     background-color: #F4F4F4;
     font-family: "Roboto";
-    min-width: 50%;
-    max-width: 100%;
-    padding: 4%;
-    border-radius: 5px;
+    padding: 1rem;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    border-radius: 8px;
 }
