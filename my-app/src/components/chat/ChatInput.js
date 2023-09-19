@@ -1,17 +1,19 @@
+import { useState, useContext } from 'react';
+import { ChatDataContext } from '../../services/context';
 import styles from './ChatInput.module.css';
 import { socket } from '../../services/socket';
-import { useState } from 'react';
+
 
 export default function ChatInput()
 {
     const [mensagem, setMensagem] = useState("");
+    const[chatData, setChatData] = useContext(ChatDataContext);
 
     const handleSubmit = (e) => {
-        console.log("341231")
         e.preventDefault();
         socket.emit("message", {
-          username: "Vinicius",
-          room: "1212",
+          username: chatData.username,
+          room: chatData.room,
           message: mensagem
         })
       }

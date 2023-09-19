@@ -1,13 +1,14 @@
+import { useContext } from "react";
+import { ChatDataContext } from '../../services/context';
 import styles from "./Profile.module.css";
+
 
 export default function Profile()
 {
-
-    const name = "Vinicius Polachini";
-    const roomCode = "XSDTLRTQWEG";
+    const[chatData, setChatData] = useContext(ChatDataContext);
 
     const getFirstCharacterInTheName = () => {
-        const nameArray = name.split(" ");
+        const nameArray = chatData.username.split(" ");
         const profileChars = (nameArray[0][0] || '') + (nameArray[1]?.[0] || '');
 
         return profileChars;
@@ -26,8 +27,8 @@ export default function Profile()
             <div className={styles.profileIcon} style={{backgroundColor: geraCorEmTomPastel()}}>
                 <span>{getFirstCharacterInTheName()}</span>
             </div>
-            <p className={styles.name}>{name}</p>
-            <p className={styles.roomCode}>{roomCode}</p>
+            <p className={styles.name}>{chatData.username}</p>
+            <p className={styles.roomCode}>{chatData.room}</p>
         </div>
     );
 }

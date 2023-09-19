@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import { socket } from '../../services/socket';
+import { ChatDataContext } from '../../services/context';
 import styles from './Login.module.css';
 
 export default function Login() {
   const[nome, setNome] = useState("");
   const[code, setCode] = useState("");
+  const[chatData, setChatData] = useContext(ChatDataContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log( {
-      username: nome,
-      room: code,
-    });
+
+    const data = {...chatData};
+
     socket.emit("select_room", {
       username: nome,
       room: code,
     }, (response) => {
-      console.log(response);
+      data.room = code;
+      data.username = nome;
+      data.messages = response;
+      setChatData(data);
       navigate('/chat');
     })
   }

@@ -1,16 +1,18 @@
+import { useEffect, useState, useContext } from 'react';
+import { ChatDataContext } from '../../services/context';
 import styles from './ChatRoom.module.css';
 import ChatInput from './ChatInput.js';
 import Message from './Message.js';
 import { socket } from '../../services/socket';
-import { useEffect, useState } from 'react';
+
 
 export default function ChatRoom()
 {
-    const [mensagens, setMensagens] = useState([]);
+    const[chatData, setChatData] = useContext(ChatDataContext);
+    const [mensagens, setMensagens] = useState(chatData.messages);
 
     useEffect(()=>{
         socket.on("message", (data) => {
-            console.log(data);
             const msgs = [...mensagens];
             msgs.push(data);
             setMensagens(msgs);
@@ -33,7 +35,7 @@ export default function ChatRoom()
                         conteudo={{
                             text: msg.text,
                             username: msg.username,
-                            isSender: false,
+                            isSender: chatData.username === msg.username,
                             cor: geraCorEmTomPastel()
                         }}
                     />
