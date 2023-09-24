@@ -8,11 +8,12 @@
     height: 80vh;
 }
 
-@media (max-width: 360px){
+@media screen and (max-width: 580px){
     .container {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 100%;
         gap: 4rem;
     }
 }

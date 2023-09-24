@@ -6,6 +6,10 @@
     flex-basis: 0;
 }
 
+.mensagem > div {
+    gap: 1rem;
+}
+
 .mensagem > div > div {
     width: 42px;
     font-size: 1rem;
@@ -17,14 +21,13 @@
     aspect-ratio: 1/1; 
 }
 
-@media (max-width: 360px){
+@media screen and (max-width: 580px){
     .mensagem > div > div {
         width: 28px;
     }
 }
 
 .mensagem > div > span {
-    margin-left: .8rem;
     font-family: "Roboto";
     font-size: 1rem;
 }

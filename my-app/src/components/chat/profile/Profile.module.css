@@ -17,6 +17,12 @@
     aspect-ratio: 1/1;
 }
 
+@media screen and (max-width: 580px){
+    .profileIcon {
+        width: 35%;
+    }
+}
+
 .profileIcon > span {
     font-family: "Roboto";
     font-size: 1.8rem;

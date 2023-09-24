@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client';
 
-const URL = 'http://localhost:3000';
+const URL = 'https://api-fofoca.onrender.com';
 
 export const socket = io(URL);

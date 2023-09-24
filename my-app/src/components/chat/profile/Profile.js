@@ -1,12 +1,12 @@
 import { useContext, useMemo } from "react";
-import { ChatDataContext } from '../../services/context';
-import { geraCorEmTomPastel } from "../../utils/getColor";
+import { ChatDataContext } from '../../../services/context';
+import { generateColorByUsername } from "../../utils/getColor";
 import { getFirstCharacterInTheName } from "../../utils/getInitial";
 import styles from "./Profile.module.css";
 
 
 export const Profile = () => {
-    const[chatData, setChatData] = useContext(ChatDataContext);
+    const [chatData, setChatData] = useContext(ChatDataContext);
 
     // useMemo memoriza o valor de firstCharacterInTheName para que a função não seja executada
     // toda vez que um estado alterar, melhorando a performance da página. 
@@ -19,7 +19,7 @@ export const Profile = () => {
     // useMemo memoriza o valor de profileColor para que a função não seja executada
     // toda vez que um estado alterar, melhorando a performance da página. 
     const profileColor = useMemo(() => {
-        return geraCorEmTomPastel();
+        return generateColorByUsername(chatData.username);
     }, []);
 
     return(
@@ -28,7 +28,7 @@ export const Profile = () => {
                 <span>{firstCharacterInTheName}</span>
             </div>
             <p className={styles.name}>{chatData.username}</p>
-            <p className={styles.roomCode}>{chatData.room}</p>
+            <p className={styles.roomCode}>Na sala: {chatData.room}</p>
         </div>
     );
 }

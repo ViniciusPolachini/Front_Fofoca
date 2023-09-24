@@ -51,7 +51,7 @@
   background-color: #d8f88f;
 }
 
-@media (max-width: 360px){
+@media screen and (max-width: 580px){
   .submitInput {
     border-radius: 12px;
   }

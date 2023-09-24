@@ -1,4 +1,4 @@
-import imagem from "../../images/fofoca.png";
+import imagem from "../../../images/fofoca.png";
 import styles from './WelcomeItem.module.css';
 
 export const WelcomeItem = () => {

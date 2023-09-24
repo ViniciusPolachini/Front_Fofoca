@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ChatDataContext } from "../../services/context";
 import { Outlet } from "react-router-dom";
-import { Navbar } from '../../components/navbar/Navbar';
-import { Footer } from '../../components/footer/Footer';
+import { Navbar } from "../../components/shared/navbar/Navbar";
+import { Footer } from "../../components/shared/footer/Footer";
 
 export default function Layout() {
   const [chatData, setChatData] = useState({
@@ -21,9 +21,9 @@ export default function Layout() {
       displaty: "flex", }}
     >
       <ChatDataContext.Provider value ={[chatData, setChatData]}>
-      <Navbar />
+      <Navbar/>
       <Outlet />
-      <Footer />
+      <Footer/>
       </ChatDataContext.Provider>
     </div>
   );
