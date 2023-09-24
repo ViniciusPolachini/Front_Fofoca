@@ -19,7 +19,8 @@
 
 @media screen and (max-width: 580px) {
     .messageArea {
-        max-height: 62vh;
+        height: 60vh;
+        width: 90vw;
     } 
 }
 

@@ -14,7 +14,7 @@ export const ChatRoom = () => {
     const messageAreaRef = useRef(null);
 
     useEffect(()=>{
-        // abrindo a conexão ao montar o componente
+        // criando o listener ao montar o componente
         socket.on("message", (data) => {
             const msgs = [...mensagens];
             msgs.push(data);
@@ -27,7 +27,7 @@ export const ChatRoom = () => {
         }
 
         return () => {
-            // fechando a conexão ao desmontar o componente
+            // encerrando o listener ao desmontar o componente
             socket.off("message");
         }
     })
