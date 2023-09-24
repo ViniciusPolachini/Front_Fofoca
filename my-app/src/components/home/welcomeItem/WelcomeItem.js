@@ -8,7 +8,7 @@ export const WelcomeItem = () => {
           <p className={styles.titulo}>FoFoca</p>
           <p className={styles.subtitulo}>O melhor site de chat da SECOMPP</p>
         </div>
-        <img src={imagem} className={styles.imagem}></img>
+        <img src={imagem} className={styles.imagem} alt="logo"></img>
       </div>
     );
   }

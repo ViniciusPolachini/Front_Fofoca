@@ -1,30 +1,31 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { ChatDataContext } from '../../services/context';
+import { geraCorEmTomPastel } from "../../utils/getColor";
+import { getFirstCharacterInTheName } from "../../utils/getInitial";
 import styles from "./Profile.module.css";
 
 
 export const Profile = () => {
     const[chatData, setChatData] = useContext(ChatDataContext);
 
-    const getFirstCharacterInTheName = () => {
-        const nameArray = chatData.username.split(" ");
-        const profileChars = (nameArray[0][0] || '') + (nameArray[1]?.[0] || '');
+    // useMemo memoriza o valor de firstCharacterInTheName para que a função não seja executada
+    // toda vez que um estado alterar, melhorando a performance da página. 
+    const firstCharacterInTheName = useMemo(() => {
+        return getFirstCharacterInTheName(chatData.username);
+    // esse valor só será recalculado se conteudo.username mudar, pois ai seria
+    // necessário um novo valor para as iniciais baseado no nome do usuário.
+    }, [chatData.username]);
 
-        return profileChars;
-    }
-
-    const geraCorEmTomPastel = () => {
-        const randomHue = Math.floor(Math.random() * 360); // Matiz (0-359)
-        const randomSaturation = Math.floor(Math.random() * 10) + 40; // Saturação (60-100)
-        const randomLuminosity = Math.floor(Math.random() * 20) + 60; // Luminosidade (60-90)
-
-        return `hsl(${randomHue}, ${randomSaturation}%, ${randomLuminosity}%)`;
-    }
+    // useMemo memoriza o valor de profileColor para que a função não seja executada
+    // toda vez que um estado alterar, melhorando a performance da página. 
+    const profileColor = useMemo(() => {
+        return geraCorEmTomPastel();
+    }, []);
 
     return(
         <div className={styles.container}>
-            <div className={styles.profileIcon} style={{backgroundColor: geraCorEmTomPastel()}}>
-                <span>{getFirstCharacterInTheName()}</span>
+            <div className={styles.profileIcon} style={{backgroundColor: profileColor}}>
+                <span>{firstCharacterInTheName}</span>
             </div>
             <p className={styles.name}>{chatData.username}</p>
             <p className={styles.roomCode}>{chatData.room}</p>

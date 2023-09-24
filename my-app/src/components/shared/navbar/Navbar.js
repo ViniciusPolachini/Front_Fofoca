@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { ChatDataContext } from '../../../services/context';
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -7,7 +7,9 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const[chatData, setChatData] = useContext(ChatDataContext);
 
-  const handleExit = (e) => {
+  // o useCallback memoria a execução da função e evita que ela seja reconstruída
+  // toda vez que um estado atualizar, melhorando a performance do app.
+  const handleExit = useCallback((e) => {
     e.preventDefault();
     const data = {...chatData};
     data.username = "";
@@ -15,7 +17,9 @@ export const Navbar = () => {
     data.messages = "";
     setChatData(data);
     navigate("/");
-  }
+  // a função irá sempre executar esses passos independente do valor de chatData
+  // por isso não precisamos passar ele como dependência.
+  }, [])
 
   return (
     <div className={styles.container}>   

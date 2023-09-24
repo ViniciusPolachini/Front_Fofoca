@@ -1,6 +1,7 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useMemo } from 'react';
 import { ChatDataContext } from '../../services/context';
 import { socket } from '../../services/socket';
+import { geraCorEmTomPastel } from '../../utils/getColor';
 import { ChatInput } from '../chatInput/ChatInput';
 import { Message } from '../message/Message';
 
@@ -11,20 +12,24 @@ export const ChatRoom = () => {
     const [mensagens, setMensagens] = useState(chatData.messages);
 
     useEffect(()=>{
+        // abrindo a conexão ao montar o componente
         socket.on("message", (data) => {
             const msgs = [...mensagens];
             msgs.push(data);
             setMensagens(msgs);
         });
+
+        return () => {
+            // fechando a conexão ao desmontar o componente
+            socket.off();
+        }
     })
 
-    const geraCorEmTomPastel = () => {
-        const randomHue = Math.floor(Math.random() * 360); // Matiz (0-359)
-        const randomSaturation = Math.floor(Math.random() * 10) + 40; // Saturação (60-100)
-        const randomLuminosity = Math.floor(Math.random() * 20) + 60; // Luminosidade (60-90)
-
-        return `hsl(${randomHue}, ${randomSaturation}%, ${randomLuminosity}%)`;
-    }
+    // useMemo memoriza o valor de profileColor para que a função não seja executada
+    // toda vez que um estado alterar, melhorando a performance da página. 
+    const profileColor = useMemo(() => {
+        return geraCorEmTomPastel();
+    }, []);
 
     return(
         <div className={styles.container}>
@@ -35,7 +40,7 @@ export const ChatRoom = () => {
                             text: msg.text,
                             username: msg.username,
                             isSender: chatData.username === msg.username,
-                            cor: geraCorEmTomPastel()
+                            cor: profileColor
                         }}
                     />
                 )}
