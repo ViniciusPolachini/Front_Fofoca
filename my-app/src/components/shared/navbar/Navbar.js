@@ -1,5 +1,6 @@
 import { useCallback, useContext } from 'react';
 import { ChatDataContext } from '../../../services/context';
+import { socket } from '../../../services/socket';
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
@@ -12,14 +13,18 @@ export const Navbar = () => {
   const handleExit = useCallback((e) => {
     e.preventDefault();
     const data = {...chatData};
+
+    socket.emit("leave_room",{
+      room: data.room
+    });
+
     data.username = "";
     data.room = "";
     data.messages = "";
+    
     setChatData(data);
     navigate("/");
-  // a função irá sempre executar esses passos independente do valor de chatData
-  // por isso não precisamos passar ele como dependência.
-  }, [])
+  }, [chatData])
 
   return (
     <div className={styles.container}>   
