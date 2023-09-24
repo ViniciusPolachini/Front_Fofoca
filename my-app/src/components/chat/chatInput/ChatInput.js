@@ -1,23 +1,21 @@
 import { useState, useContext } from 'react';
 import { ChatDataContext } from '../../services/context';
-import styles from './ChatInput.module.css';
 import { socket } from '../../services/socket';
+import styles from './ChatInput.module.css';
 
 
-export default function ChatInput()
-{
+export const ChatInput = () => {
     const [mensagem, setMensagem] = useState("");
     const[chatData, setChatData] = useContext(ChatDataContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         socket.emit("message", {
-          username: chatData.username,
-          room: chatData.room,
-          message: mensagem
+            username: chatData.username,
+            room: chatData.room,
+            message: mensagem
         })
-      }
-
+    }
 
     return(
         <form className={styles.forumlario} onSubmit={handleSubmit}>

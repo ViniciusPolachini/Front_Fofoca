@@ -1,7 +1,6 @@
 import styles from './Message.module.css';
 
-export default function Message({conteudo})
-{
+export const Message = ({conteudo}) => {
     const getFirstCharacterInTheName = () => {
         const nameArray = conteudo.username.split(" ");
         const profileChars = (nameArray[0][0] || '') + (nameArray[1]?.[0] || '');

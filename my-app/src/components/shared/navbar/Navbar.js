@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChatDataContext } from '../../services/context';
+import { ChatDataContext } from '../../../services/context';
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 

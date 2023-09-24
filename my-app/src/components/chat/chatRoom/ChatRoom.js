@@ -1,13 +1,12 @@
 import { useEffect, useState, useContext } from 'react';
 import { ChatDataContext } from '../../services/context';
-import styles from './ChatRoom.module.css';
-import ChatInput from './ChatInput.js';
-import Message from './Message.js';
 import { socket } from '../../services/socket';
+import { ChatInput } from '../chatInput/ChatInput';
+import { Message } from '../message/Message';
 
+import styles from './ChatRoom.module.css';
 
-export default function ChatRoom()
-{
+export const ChatRoom = () => {
     const[chatData, setChatData] = useContext(ChatDataContext);
     const [mensagens, setMensagens] = useState(chatData.messages);
 

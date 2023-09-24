@@ -1,5 +1,5 @@
-import Profile from "../../components/chat/Profile"
-import ChatRoom from "../../components/chat/ChatRoom"
+import { ChatRoom } from "../../components/chat/chatRoom/ChatRoom";
+import { Profile } from "../../components/chat/profile/Profile";
 import style from "./style.module.css"
 
 export default function Chat() {

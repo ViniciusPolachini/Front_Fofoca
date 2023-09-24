@@ -3,8 +3,7 @@ import { ChatDataContext } from '../../services/context';
 import styles from "./Profile.module.css";
 
 
-export default function Profile()
-{
+export const Profile = () => {
     const[chatData, setChatData] = useContext(ChatDataContext);
 
     const getFirstCharacterInTheName = () => {

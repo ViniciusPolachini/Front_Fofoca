@@ -1,7 +1,7 @@
 import imagem from "../../images/fofoca.png";
 import styles from './WelcomeItem.module.css';
 
-export default function WelcomeItem() {
+export const WelcomeItem = () => {
     return (
       <div className={styles.container}>
         <div>

@@ -1,12 +1,12 @@
-import WelcomeItem from "../../components/home/WelcomeItem"
-import Login from "../../components/home/Login"
+import { Login } from "../../components/home/login/Login";
+import { WelcomeItem } from "../../components/home/welcomeItem/WelcomeItem";
 import style from "./style.module.css"
 
 export default function Home() {
   return (
     <div className={style.container}>
-        <WelcomeItem></WelcomeItem>
-        <Login></Login>
+        <WelcomeItem/>
+        <Login/>
     </div>
   );
 }

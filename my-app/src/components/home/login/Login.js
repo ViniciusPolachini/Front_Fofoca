@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { socket } from '../../services/socket';
-import { ChatDataContext } from '../../services/context';
+import { socket } from '../../../services/socket';
+import { ChatDataContext } from '../../../services/context';
 import styles from './Login.module.css';
 
-export default function Login() {
+export const Login = () => {
   const[nome, setNome] = useState("");
   const[code, setCode] = useState("");
   const[chatData, setChatData] = useContext(ChatDataContext);
